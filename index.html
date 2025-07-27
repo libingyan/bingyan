@@ -1,1 +1,160 @@
-Hello World
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing 交互作品展示</title>
+    <meta name="description" content="现代化的Processing交互作品展示网站，探索创意编程的无限可能">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <!-- nav -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Creative Programming</h2>
+            </div>
+            <!-- <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#works" class="nav-link">works</a></li>
+                <li><a href="#about" class="nav-link">about</a></li>
+                <li><a href="#contact" class="nav-link">contact</a></li>
+            </ul> -->
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页部分 -->
+    <!-- <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">works</h1>
+            <p class="hero-subtitle">Create art with code, express creativity through technology.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('works')">works</button>
+                <button class="btn btn-secondary" onclick="scrollToSection('about')">learn more</button>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div id="hero-sketch"></div>
+        </div>
+    </section> -->
+
+    <!-- 作品展示部分 -->
+    <section id="works" class="works">
+        <div class="container">
+            <!-- <h2 class="section-title">我的作品</h2> -->
+            <div class="works-grid">
+                <div class="work-item" onclick="loadSketch('sketch1')">
+                    <div class="work-preview" id="sketch1-preview"></div>
+                    <div class="work-info">
+                        <h3>粒子系统</h3>
+                        <p>物理模拟的粒子动画</p>
+                    </div>
+                </div>
+                <div class="work-item" onclick="loadSketch('sketch2')">
+                    <div class="work-preview" id="sketch2-preview"></div>
+                    <div class="work-info">
+                        <h3>分形树</h3>
+                        <p>递归生成的分形结构</p>
+                    </div>
+                </div>
+                <div class="work-item" onclick="loadSketch('sketch3')">
+                    <div class="work-preview" id="sketch3-preview"></div>
+                    <div class="work-info">
+                        <h3>音频可视化</h3>
+                        <p>实时频谱分析</p>
+                    </div>
+                </div>
+                <div class="work-item" onclick="loadSketch('sketch4')">
+                    <div class="work-preview" id="sketch4-preview"></div>
+                    <div class="work-info">
+                        <h3>神经网络</h3>
+                        <p>数据流动可视化</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 当前作品展示区域 -->
+    <section id="current-work" class="current-work">
+        <div class="container">
+            <div class="work-header">
+                <h2 id="current-work-title">选择作品进行交互</h2>
+                <button class="btn btn-close" onclick="closeCurrentWork()">关闭</button>
+            </div>
+            <div class="work-canvas-container">
+                <div id="current-sketch"></div>
+                <div class="work-controls">
+                    <button class="btn btn-control" onclick="resetSketch()">重置</button>
+                    <button class="btn btn-control" onclick="toggleFullscreen()">全屏</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于部分 -->
+    <!-- <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">关于我</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>专注于创意编程和数字艺术创作，探索代码与艺术的无限可能。</p>
+                    <p>使用Processing和p5.js创造独特的交互体验。</p>
+                    <div class="skills">
+                        <h3>技术栈</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Processing</span>
+                            <span class="skill-tag">p5.js</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">创意编程</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- 联系部分 -->
+    <!-- <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">联系我</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>邮箱</h3>
+                        <p>your.email@example.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>GitHub</h3>
+                        <p>github.com/yourusername</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>作品集</h3>
+                        <p>更多作品请访问我的作品集网站</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Processing 交互作品展示. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script src="sketches.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
